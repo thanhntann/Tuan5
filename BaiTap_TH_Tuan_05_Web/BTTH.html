@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="BaiThucHanh05.css">
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+.page{
+    width: 1440px;
+}
+.menu{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-left{
+    width: 45%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.menu-left-bar{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 70px;
+}
+.menu-left-bar li a{
+    display: inline-block;
+    color: gray;
+    height: 70px;
+    text-decoration: none;
+}
+.menu-left-bar li{
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    line-height: 70px;
+    margin-right: 25px;
+    padding: 0;
+}
+.menu-left-bar a:hover{
+    color: aqua;
+    border-bottom: 3px solid aqua;
+}
+.menu-right{
+    width: 500px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-search{
+    background-color: rgba(225, 225, 225, 0.315);
+    width: 330px;
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+}
+#btnsearch{
+    margin-left: 10px;
+}
+#txtsearch{
+    width: 85%;
+    height: 35px;
+    border: none;
+    background: none;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.center{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 84%;
+    margin: 0 8% 0 8%;
+}
+.product-detail{
+    width: 100%;
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    margin: 50px 0 0 0;
+}
+.product-detail h1{
+    font-size: 45px;
+}
+#tabname{
+    color: gray;
+}
+.review-share{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sharesave{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 3%;
+}
+.img-product{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.img-product img{
+    margin: 0 10px 10px 0;
+}
+.product-desc{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgba(199, 199, 199, 0.248);
+}
+.detail-content{
+    width: 740px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+}
+.service{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.left-services, .right-services{
+    height: 120px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
+.left-services img, .right-services img{
+    display: inline-block;
+    margin-bottom: -5px;
+}
+.selectproduct{
+    width: 340px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    border: 1px solid rgba(188, 188, 188, 0.25);
+    padding: 20px;
+    border-radius: 5px;
+}
+#boxselect{
+    width: 100%;
+    height: 35px;
+    border: none;
+    background-color: rgba(189, 189, 189, 0.164);
+    border-radius: 10px;
+}
+.total{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+#btnbuy{
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(0, 203, 203);
+    color: white;
+    font-size: 16px;
+}
+#btnadd{
+    width: 100%;
+    height: 45px;
+    border: 1px solid rgb(0, 203, 203);
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 203, 203);
+    background-color: white;
+}
+.selectproduct h2{
+    color: rgb(53, 174, 174);
+}
+.review-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    padding: 40px 0 40px 0;
+    border-bottom: 2px solid rgba(199, 199, 199, 0.248);
+}
+.title-review{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 75px;
+}
+.left-title-review{
+    width: 22%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-title-review p{
+    color: rgba(110, 110, 110, 0.65);
+}
+.right-title-review p{
+    height: 100%;
+    color: rgba(110, 110, 110, 0.65);
+    display: flex;
+    align-items: center;
+}
+.review-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 40px;
+}
+.reviewer{
+    height: 100px;
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    margin: 0;
+}
+.reviewer-detail{
+    width: 50%;
+    display: flex;
+}
+.user-detail{
+    width: 100%;
+    height: 35px;
+    margin-left: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.user-name{
+    width: 100%;
+    float: left;
+}
+.user-name *{
+    display: inline;
+    margin-left: 5px;
+}
+#writetime{
+    color: rgba(110, 110, 110, 0.65);
+    font-size: small;
+}
+.review-content{
+    font-family: Arial;
+    font-size: medium;
+}
+.related-product{
+    width: 100%;
+
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="menu">
+            <div class="menu-left">
+                <a href=""><img src="Image 1710.png"></a>
+                <nav class="menu-left-bar">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Promotions</a></li>
+                    <li><a href="">Best-sellers</a></li>
+                    <li><a href="">New releases</a></li>
+                    <li><a href="">Support</a></li>
+                </nav>
+            </div>
+            <div class="menu-right">
+                <form action="search" class="form-search">
+                    <img src="Ảnh chụp màn hình 2023-03-22 060258.png" id="btnsearch">
+                    <input type="text" placeholder="Search..." id="txtsearch">
+                </form>
+                <img src="Bell 1.png">
+                <img src="Shopping cart simple 1.png">
+                <img src="Avatar 758.png">
+            </div>
+        </div>
+        <div class="center">
+            <div class="product-detail">
+                <div>
+                    <span id="tabname">Home </span>
+                    <span id="tabname">/ Category </span>
+                    <span>/ Product title</span>
+                </div>
+                <h1>Product title</h1>
+                <div class="review-share">
+                    <div class="review">
+                        <img src="Rating 317.png">
+                        <b>4.2D</b>
+                        <span id="tabname">(99 reviews)</span>
+                    </div>
+                    <div class="sharesave">
+                        <div>
+                            <img src="share.png">
+                            <span>Share</span>
+                        </div>
+                        <div>
+                            <img src="tym.png">
+                            <span>Save</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-product">
+                        <div class="imglarge">
+                            <img src="Image 1705.png">
+                        </div>
+                        <div>
+                            <img src="Image 1708.png">
+                            <img src="Image 1707.png">
+                            <img src="Image 1706.png">
+                            <img src="Image 1709.png">
+                        </div>
+                </div>
+            </div>
+            <div class="product-desc">
+                <div class="detail-content">
+                    <h2>Product description</h2>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem lorem aliquam sed lacinia quis
+                            Nibh dictumst vulputate odio pellientesque sit quis ac, sit ipsum. Sit rhoncus velit in sed massa
+                            arcu sit eu. Vitae et vitae eget lorem non dui.
+                        </p>
+                        <p>Sollicitudin ut mi adipiscing duis.</p>
+                        <p>Convallis in semper laoreet nibh leo, Vivamus malesuada ipsum pulvinar non rutrum risus dui, risus.
+                            Purus massa velit laculis tincidunt tortor, rius, scelerisque rusus. In at lorem pellentesque orci aenean dictum 
+                            dignissim in. Aenean pulvinar dlam interdum ullamcorper. Ver urna, tortor, massa metus purus metus. Maecenas mollis in velit auctor cursus 
+                            scelerisque eget.
+                        </p>
+                    </div>
+                    <div class="service">
+                        <div class="left-services">
+                            <div>
+                                <img src="Truck 1.png">
+                                <span>Free delivery</span>
+                            </div>
+                            <div>
+                                <img src="Globe 1.png"> 
+                                <span>Made in USA</span>
+                            </div>
+                            <div>
+                                <img src="Chat dots 1.png">
+                                <span>100% authentic</span>
+                            </div>
+                        </div>
+                        <div class="right-services">
+                            <div>
+                                <img src="Arrow bend up left 1.png"> 
+                                <span>7 days return</span>
+                            </div>
+                            <div>
+                                <img src="Medal 1.png">
+                                <span>2 years guarantee</span>
+                            </div>
+                            <div>
+                                <img src="Checks 1.png">
+                                <span>24/7 customer support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selectproduct">
+                    <h2>$99</h2>
+                    <select name="color" id="boxselect">
+                        <option value="color">Color</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="pink">Pink</option>
+                    </select>
+                    <select name="size" id="boxselect">
+                        <option value="color">Size</option>
+                        <option value="green">Small</option>
+                        <option value="blue">Medium</option>
+                        <option value="pink">Large</option>
+                    </select>
+                    <select name="quantity" id="boxselect">
+                        <option value="color">3</option>
+                        <option value="green">4</option>
+                        <option value="blue">5</option>
+                        <option value="pink">6</option>
+                    </select>
+                    <div class="total">
+                        <span>Total</span> 
+                        <b>$265</b>
+                    </div>
+                    <button id="btnbuy">Buy now</button>
+                    <button id="btnadd"><img src="Shopping cart simple 1.png">Add to cart</button>
+                </div>
+            </div>
+            <div class="review-box">
+                <div class="title-review">
+                    <div class="left-title-review">
+                        <h1>Reviews</h1> 
+                        <img src="Rating 304.png">
+                        <h3>4.2D</h3>
+                        <p>(99 reviews)</p>
+                    </div>
+                   <div class="right-title-review">
+                        <p>Show all reviews  ></p>
+                   </div>
+                </div>
+                <div class="review-list">
+                    <div class="reviewer">
+                        <div class="reviewer-detail">
+                            <div>
+                                <img src="Avatar 753.png">
+                            </div>
+                            <div class="user-detail">
+                                <div class="user-name">
+                                    <h3>Jay Rutherford</h3>
+                                    <p id="writetime">3d ago</p>
+                                </div>
+                                <div>
+                                    <img src="Rating 300.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Nulla laboris fugiat fugiat minim minim excepteur eiusmod quis. Laborum est
+                                minim id cillum nostrud cillum consectetur.</p>
+                        </div>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-detail">
+                            <div>
+                                <img src="Avatar 756.png">
+                            </div>
+                            <div class="user-detail">
+                                <div class="user-name">
+                                    <h3>Nicole Chung</h3>
+                                    <p id="writetime">3d ago</p>
+                                </div>
+                                <div>
+                                    <img src="Rating 305.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Proident ullamco minim quis aliquip eiusmod in deserunt sit aliqua. Adipisicing reprehenderit elit officia occaecat dolor.</p>
+                        </div>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-detail">
+                            <div>
+                                <img src="Avatar 755.png">
+                            </div>
+                            <div class="user-detail">
+                                <div class="user-name">
+                                    <h3>Wei Arnold</h3>
+                                    <p id="writetime">3d ago</p>
+                                </div>
+                                <div>
+                                    <img src="Rating 303.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Ut commodo quis sit in consequat sit nisi dolor adipisicing officia tempor do duis consequat dolore dolore ipsum.</p>
+                        </div>
+                    </div>
+                    <div class="reviewer">
+                        <div class="reviewer-detail">
+                            <div>
+                                <img src="Avatar 757.png">
+                            </div>
+                            <div class="user-detail">
+                                <div class="user-name">
+                                    <h3>Judith Mejia</h3>
+                                    <p id="writetime">3d ago</p>
+                                </div>
+                                <div>
+                                    <img src="Rating 299.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Ad laborum dolor cupidatat culpa mollit non non sunt qui. In ut et aute mollit eiusmod occaecat eiusmod mi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="related-product">
+            <div class="related-title">
+                <h1>Related products</h1>
+                <p>See more ></p>
+            </div>
+            <div class="product-list">
+                <div class="product-sale">
+                    <div>
+                        <img src="Image 1704.png">
+                    </div>
+                    <div class="product-title">
+                        <h3>Product title</h3>
+                        <div>
+                            <img src="Heart 23.png">
+                        </div>
+                    </div>
+                    <h4>$230</h4>
+                    <div class="rate-product">
+                        <div>
+                            <img src="Rating 300.png">
+                            <p>1000 items sold</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</body>
+</html>
